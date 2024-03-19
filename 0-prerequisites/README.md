@@ -38,19 +38,19 @@ HPC. You may load the modules with the following command:
 ```console
 foo@bar:~$ module load StdEnv/2020
 foo@bar:~$ module load gcc/9.3.0
-foo@bar:~$ module load libfabric/1.10.1 ipykernel/2023a \
-    sqlite/3.38.5 postgresql/12.4 gdal/3.5.1 \
-    udunits/2.2.28 cdo/2.2.1 gentoo/2020 \
-    imkl/2020.1.217 openmpi/4.0.3 scipy-stack/2023a \
-    jasper/2.0.16 freexl/1.0.5 geos/3.10.2 \
-    libaec/1.0.6 mpi4py/3.1.3 StdEnv/2020 \
-    gcc/9.3.0 libffi/3.3 hdf5/1.10.6 \
-    libgeotiff-proj901/1.7.1 librttopo-proj9/1.1.0 \
-    proj/9.0.1 eccodes/2.25.0 netcdf-fortran/4.5.2 \
-    mii/1.1.2 ucx/1.8.0 python/3.10.2 \
-    netcdf/4.7.4 cfitsio/4.1.0 \
-    libspatialite-proj901/5.0.1 expat/2.4.1 \
-    yaxt/0.9.0 libspatialindex/1.8.5
+foo@bar:~$ module load libfabric/1.10.1 ipykernel/2023b \
+  sqlite/3.38.5 postgresql/12.4 gdal/3.5.1 \
+  udunits/2.2.28 cdo/2.2.1 gentoo/2020 \
+  imkl/2020.1.217 openmpi/4.0.3 scipy-stack/2023b \
+  jasper/2.0.16 freexl/1.0.5 geos/3.10.2 \
+  libaec/1.0.6 mpi4py/3.1.3 StdEnv/2020 \
+  gcc/9.3.0 libffi/3.3 hdf5/1.10.6 \
+  libgeotiff-proj901/1.7.1 librttopo-proj9/1.1.0 \
+  proj/9.0.1 eccodes/2.25.0 netcdf-fortran/4.5.2 \
+  mii/1.1.2 ucx/1.8.0 python/3.10.2 \
+  netcdf/4.7.4 cfitsio/4.1.0 \
+  libspatialite-proj901/5.0.1 expat/2.4.1 \
+  yaxt/0.9.0 libspatialindex/1.8.5 arrow/13.0.0;
 ```
 It is recommended to save all load modules as a list to be able to restore
 them whenever needed. Using the LMOD features, you may save them with:
@@ -77,42 +77,43 @@ manual](https://docs.alliancecan.ca/wiki/Python#Creating_and_using_a_virtual_env
 for necessary information on how to create a Python virtual environment
 using the [requirements.txt](./requirements.txt) file mentioned above.
 
+The installation process needs to be done in the login node of the Graham
+cluster, so let's switch to a login node:
+```console
+foo@bar:~$ ssh gra-login1 # user your username and password
+```
+
+Once you login, your sheel will look like the following:
+```console
+foo@gra-login1:~$ 
+```
+
 You can create Python virtual environments (after assuring all
 the modules are loaded) on Graham HPC, to isolate the environment
 to execute the workflows. on Graham, it is recommended to use
 your `$HOME` directory, so a path like the following is recommended:
 ```console
-foo@bar:~$ virtualenv $HOME/virtual-envs/scienv
+foo@gra-login1:~$ virtualenv $HOME/virtual-envs/scienv
 ```
 
 After creating the virtual environment, you can activate the environment
 with:
 ```console
-foo@bar:~$ source $HOME/virtual-envs/scienv/bin/activate
-(scienv) foo@bar:~$ # this is how your Graham sheel will look
+foo@gra-login1:~$ source $HOME/virtual-envs/scienv/bin/activate
+(scienv) foo@gra-login1:~$ # this is how your Graham sheel will look
 ```
 
 After the activation of the virtual environment, you may install any
-Python package within the environment. To install those
-included in the [requirements.txt](./requirements.txt) file:
+Python package within the environment. To install those we need for
+the modelling workflows:
 ```console
-(scienv) foo@bar:~$ pip install -r /path/to/0-prerequisites/requirements.txt
+(scienv) foo@gra-login1:~$ pip install --no-index --find-links=/project/rrg-mclark/lib/mclark-wheelhouse/ *.whl
 ```
 
-Please note that two Python packages needed in the workflows are not yet
-available on PyPI. If these packages are not automatically installed using
-the previous steps, you may install each directly from their relevant
-GitHub repositories:
-```console
-(scienv) foo@bar:~$ pip install git+https://github.com/kasra-keshavarz/hydrant
-...
-(scienv) foo@bar:~$ pip install git+https://github.com/kasra-keshavarz/meshflow
-```
-
-Once the `your-virtual-env` is ready, you may add the virtual environment
+Once the `scienv` is ready, you may add the virtual environment
 to the Jupyter Lab as a kernel using the following command:
 ```console
-(scienv) foo@bar:~$ python -m ipykernel install --name "your-virtual-env" --user
+(scienv) foo@gra-login1:~$ python -m ipykernel install --name "scienv" --user
 ```
 > [!IMPORTANT]
 > If you face any errors by executing the command above, make sure
@@ -135,19 +136,19 @@ Jupyter sessions.
 
    Download with:
    ```console
-   foo@bar:~$ git clone https://github.com/kasra-keshavarz/datatool
+   foo@gra-login1:~$ git clone https://github.com/kasra-keshavarz/datatool
    ```
 
 3. GIStool (version v0.1.7-dev, commit e373e38): https://github.com/kasra-keshavarz/gistool </b>
 
    Download with:
    ```console
-   foo@bar:~$ git clone https://github.com/kasra-keshavarz/gistool
+   foo@gra-login1:~$ git clone https://github.com/kasra-keshavarz/gistool
    ```
 
 4. EASYMORE (v2.0.0-dev): https://github.com/ShervanGharari/EASYMORE </b>
   
    Download with:
    ```console
-   foo@bar:~$ pip install git+https://github.com/ShervanGharari/EASYMORE.git
+   foo@gra-login1:~$ pip install git+https://github.com/ShervanGharari/EASYMORE.git
    ```
