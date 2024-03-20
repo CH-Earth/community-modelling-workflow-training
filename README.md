@@ -122,7 +122,7 @@ to the Jupyter Lab as a kernel using the following command:
 
 Once added as a kernel, you should your virtual environment within your
 Jupyter sessions.
-![Virtual environment within a Jupyter Session](./img/jupyter-venv.png)
+![Virtual environment within a Jupyter Session](../0-prerequisites/img/jupyter-venv.png)
 
 # Additional datasets necessary
 1. MERIT-Basins vector hydrography Dataset (v0.7/v1.0, minor bug fix for coastaline pixels): https://www.reachhydro.org/home/params/merit-basins </b>
