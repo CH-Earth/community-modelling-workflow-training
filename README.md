@@ -1,3 +1,7 @@
+# Training session to set up MESH for the Bow River at Banff catchment
+![Bow River at Banff Catchment](./0-prerequisites/img/bow.png)
+
+
 # Library requirements
 ## General
 Certain libraries and binary executables are necessary to run the
