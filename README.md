@@ -93,7 +93,7 @@ the modules are loaded) on Graham HPC, to isolate the environment
 to execute the workflows. on Graham, it is recommended to use
 your `$HOME` directory, so a path like the following is recommended:
 ```console
-foo@gra-login1:~$ virtualenv $HOME/virtual-envs/scienv
+foo@gra-login1:~$ python -m virtualenv $HOME/virtual-envs/scienv
 ```
 
 After creating the virtual environment, you can activate the environment
@@ -107,7 +107,7 @@ After the activation of the virtual environment, you may install any
 Python package within the environment. To install those we need for
 the modelling workflows:
 ```console
-(scienv) foo@gra-login1:~$ pip install --no-index --find-links=/project/rrg-mclark/lib/mclark-wheelhouse/ *.whl
+(scienv) foo@gra-login1:~$ pip install -r ~/github-repos/community-workflows/0-prerequisites/requirements.txt
 ```
 
 Once the `scienv` is ready, you may add the virtual environment
