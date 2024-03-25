@@ -107,8 +107,8 @@
         "RDRS_v2.1_P_FB_SFC",
         "RDRS_v2.1_P_FI_SFC"
       ],
-      "remapped-var-id": "id",
-      "remapped-dim-id": "id",
+      "remapped-var-id": "COMID",
+      "remapped-dim-id": "COMID",
       "output-dir": "/home/kasra545/scratch/bb-models/easymore-outputs/",
       "job-conf": "/home/kasra545/github-repos/MESH-Bow-at-Banff/2-agnostic/easymore-job.slurm",
       "_flags": [
