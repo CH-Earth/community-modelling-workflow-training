@@ -133,21 +133,22 @@ Jupyter sessions.
 
    `MERIT-Basins` is available on Graham HPC under the following directory:
    ```console
-   /project/rrg-mclark/data/geospatial-data/MERIT-Basins
+   /project/rrg-mclark/data/geospatial-data/MERIT-Basins # rpp-kshook (GWFO) allocation
+   /project/rpp-kshook/Climate_Forcing_Data/geospatial-data/MERIT-Basins # rrg-mclark allocation
    ```
 
-2. Datatool (version v0.5.0): https://github.com/kasra-keshavarz/datatool </b>
+2. Datatool (version v0.5.1-dev): https://github.com/kasra-keshavarz/datatool </b>
 
    Download with:
    ```console
-   foo@gra-login1:~$ git clone https://github.com/kasra-keshavarz/datatool
+   foo@gra-login1:~$ git clone https://github.com/kasra-keshavarz/datatool.git
    ```
 
-3. GIStool (version v0.1.7-dev, commit e373e38): https://github.com/kasra-keshavarz/gistool </b>
+3. GIStool (version v0.1.7-dev, commit ff2a6da): https://github.com/kasra-keshavarz/gistool </b>
 
    Download with:
    ```console
-   foo@gra-login1:~$ git clone https://github.com/kasra-keshavarz/gistool
+   foo@gra-login1:~$ git clone https://github.com/kasra-keshavarz/gistool.git
    ```
 
 4. EASYMORE (v2.0.0-dev): https://github.com/ShervanGharari/EASYMORE </b>
@@ -156,3 +157,4 @@ Jupyter sessions.
    ```console
    foo@gra-login1:~$ pip install git+https://github.com/ShervanGharari/EASYMORE.git
    ```
+
