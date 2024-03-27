@@ -3,7 +3,7 @@
 
 To download this repository on the `$HOME` directory of your Graham account:
 ```console
-foo@bar:~$ git clone https://github.com/kasra-keshavarz/community-modelling-workflow-training.git ./github-repos/community-workflows
+foo@gra-login1:~$ git clone https://github.com/kasra-keshavarz/community-modelling-workflow-training.git ./github-repos/community-workflows
 ```
 
 
@@ -151,21 +151,21 @@ Jupyter sessions.
 
    Download with:
    ```console
-   foo@gra-login1:~$ git clone https://github.com/kasra-keshavarz/datatool.git ./github-repos/community-workflows
+   foo@gra-login1:~$ git clone https://github.com/kasra-keshavarz/datatool.git ./github-repos/datatool
    ```
 
 3. GIStool (version v0.1.7-dev, commit ff2a6da): https://github.com/kasra-keshavarz/gistool </b>
 
    Download with:
    ```console
-   foo@gra-login1:~$ git clone https://github.com/kasra-keshavarz/gistool.git ./github-repos/community-workflows
+   foo@gra-login1:~$ git clone https://github.com/kasra-keshavarz/gistool.git ./github-repos/gistool
    ```
 
 4. EASYMORE (v2.0.0-dev): https://github.com/ShervanGharari/EASYMORE </b>
   
    Download with:
    ```console
-   foo@gra-login1:~$ pip install git+https://github.com/ShervanGharari/EASYMORE.git ./github-repos/community-workflows
+   foo@gra-login1:~$ pip install git+https://github.com/ShervanGharari/EASYMORE.git ./github-repos/easymore
    ```
 
 Last edited: March 27th, 2024
