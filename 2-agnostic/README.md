@@ -1,5 +1,4 @@
-Introduction
-------------
+# Introduction
 This directory automates the "model-agnostic" part of setting up
 hydrological models, specifically, running `datatool`, `gistool`, and
 `easymore` to extract necessary information to set up various hydrological
@@ -8,17 +7,16 @@ models. Below the detail of each workflow is explained:
 Modify any segment of the `JSON` file as needed!
 
 
-Workflows
----------
+# Workflows
 
-    1. datatool (version v0.5.0): 
+    1. datatool (version v0.5.1-dev):
       https://www.github.com/kasra-keshavarz/datatool
 
       This workflow simply prepares meteorological datasets by subsetting
       geographical and temporal extents. 
 
     2. gistool (version v0.1.7-dev):
-     https://www.github.com/kasra-keshavarz/gistool
+      https://www.github.com/kasra-keshavarz/gistool
 
       This workflow simply prepares geospatial datasets, such as landcover
       and soil maps, for hydrological modelling purposes. Preparation is
@@ -27,7 +25,7 @@ Workflows
       geofabrics of interest.
 
     3. easymore (version v2.0.0-dev):
-     https://github.com/ShervanGharari/EASYMORE
+      https://github.com/ShervanGharari/EASYMORE
 
       This workflow calculates aerial average of meteorological datasets
       (in this setup, using the outputs of datatool) for computational
@@ -35,25 +33,27 @@ Workflows
       are the targets.
 
     4. model-agnostic.sh (version v0.1.0-dev0):
-     https://github.com/kasra-keshavarz/agnostic-orchestrator [commit b53ea4c]
+     https://github.com/kasra-keshavarz/agnostic-orchestrator
 
       Workflow to execute all mentioned workflows above in a hierarchical
       manner to minimize user interaction with the workflows themself.
 
     5. model-agnostic.json (version v0.1.0-dev0):
-     https://github.com/kasra-keshavarz/agnostic-orchestrator [commit b53ea4c]
+     https://github.com/kasra-keshavarz/agnostic-orchestrator
 
       Global configuration file to execute model-agnostic workflows on
       Digital Research Alliance of Canada (DRA)'s Graham HPC in an attempt
       to minimize user interactions with the workflows mentioned above.
 
       The run the "agnostic orchestrator", you need to simply provide the
-      input JSON file to the Bash script:
-        $ ./model-agnostic.sh model-agnostic.json
+      input JSON file to the Bash script. Please make sure all the necessary
+      modules and Python environment are loaded beforehand:
+        ```console
+	(scienv) foo@gra-login1: 2-agnostic$ ./model-agnostic.sh model-agnostic.json
+	```
 
 
-Datasets
---------
+# Datasets
 
     1. Regional Deterministic Reanalysis System (RDRS, v2.1 via datatool):
 
@@ -89,4 +89,4 @@ Datasets
       * temporal extents: annual soil map reported for 2017
       * soil categories: refer to USDA manual or gistool's documentation
 
-Last edited: March 11th, 2024
+Last edited: March 27th, 2024
