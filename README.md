@@ -3,7 +3,7 @@
 
 To download this repository on the `$HOME` directory of your Graham account:
 ```console
-foo@bar:~$ git clone https://github.com/kasra-keshavarz/community-modelling-workflow-training.git ./github-repos/community-workflows
+foo@gra-login1:~$ git clone https://github.com/kasra-keshavarz/community-modelling-workflow-training.git ./github-repos/community-workflows
 ```
 
 
