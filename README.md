@@ -78,13 +78,13 @@ for the Python environment to run smoothly (see below).
 # Python requirements
 ## General
 The following list of Python packages are required to run much of the
-workflows in this repository. The [requirements.txt](./requirements.txt)
+workflows in this repository. The [requirements.txt](./0-prerequisites/requirements.txt)
 file describes the packages necessary to run the workflows.
 
 Please refer to [DRA's
 manual](https://docs.alliancecan.ca/wiki/Python#Creating_and_using_a_virtual_environment)
 for necessary information on how to create a Python virtual environment
-using the [requirements.txt](./requirements.txt) file mentioned above.
+using the [requirements.txt](./0-prerequisites/requirements.txt) file mentioned above.
 
 The installation process needs to be done in the login node of the Graham
 cluster, so let's switch to a login node:
