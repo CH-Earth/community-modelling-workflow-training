@@ -1,3 +1,12 @@
+# Training session to set up MESH for the Bow River at Banff catchment
+![Bow River at Banff Catchment](./0-prerequisites/img/bow.png)
+
+To download this repository on the `$HOME` directory of your Graham account:
+```console
+foo@gra-login1:~$ git clone https://github.com/kasra-keshavarz/community-modelling-workflow-training.git ./github-repos/community-workflows
+```
+
+
 # Library requirements
 ## General
 Certain libraries and binary executables are necessary to run the
@@ -88,7 +97,12 @@ Once you login, your sheel will look like the following:
 foo@gra-login1:~$ 
 ```
 
-You can create Python virtual environments (after assuring all
+Whenever you change a node, make sure you load all the necessary modules:
+```console
+foo@gra-login1:~$ module restore scimods
+```
+
+Then, you may create Python virtual environments (after assuring all
 the modules are loaded) on Graham HPC, to isolate the environment
 to execute the workflows. on Graham, it is recommended to use
 your `$HOME` directory, so a path like the following is recommended:
@@ -122,33 +136,36 @@ to the Jupyter Lab as a kernel using the following command:
 
 Once added as a kernel, you should your virtual environment within your
 Jupyter sessions.
-![Virtual environment within a Jupyter Session](../0-prerequisites/img/jupyter-venv.png)
+![Virtual environment within a Jupyter Session](./0-prerequisites/img/jupyter-venv.png)
 
 # Additional datasets necessary
 1. MERIT-Basins vector hydrography Dataset (v0.7/v1.0, minor bug fix for coastaline pixels): https://www.reachhydro.org/home/params/merit-basins </b>
 
    `MERIT-Basins` is available on Graham HPC under the following directory:
    ```console
-   /project/rrg-mclark/data/geospatial-data/MERIT-Basins
+   /project/rrg-mclark/data/geospatial-data/MERIT-Basins # rpp-kshook (GWFO) allocation
+   /project/rpp-kshook/Climate_Forcing_Data/geospatial-data/MERIT-Basins # rrg-mclark allocation
    ```
 
-2. Datatool (version v0.5.0): https://github.com/kasra-keshavarz/datatool </b>
+2. Datatool (version v0.5.1-dev): https://github.com/kasra-keshavarz/datatool </b>
 
    Download with:
    ```console
-   foo@gra-login1:~$ git clone https://github.com/kasra-keshavarz/datatool
+   foo@gra-login1:~$ git clone https://github.com/kasra-keshavarz/datatool.git ./github-repos/datatool
    ```
 
-3. GIStool (version v0.1.7-dev, commit e373e38): https://github.com/kasra-keshavarz/gistool </b>
+3. GIStool (version v0.1.7-dev, commit ff2a6da): https://github.com/kasra-keshavarz/gistool </b>
 
    Download with:
    ```console
-   foo@gra-login1:~$ git clone https://github.com/kasra-keshavarz/gistool
+   foo@gra-login1:~$ git clone https://github.com/kasra-keshavarz/gistool.git ./github-repos/gistool
    ```
 
 4. EASYMORE (v2.0.0-dev): https://github.com/ShervanGharari/EASYMORE </b>
   
    Download with:
    ```console
-   foo@gra-login1:~$ pip install git+https://github.com/ShervanGharari/EASYMORE.git
+   foo@gra-login1:~$ pip install git+https://github.com/ShervanGharari/EASYMORE.git ./github-repos/easymore
    ```
+
+Last edited: March 27th, 2024

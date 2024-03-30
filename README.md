@@ -1,6 +1,11 @@
 # Training session to set up MESH for the Bow River at Banff catchment
 ![Bow River at Banff Catchment](./0-prerequisites/img/bow.png)
 
+To download this repository on the `$HOME` directory of your Graham account:
+```console
+foo@gra-login1:~$ git clone https://github.com/kasra-keshavarz/community-modelling-workflow-training.git ./github-repos/community-workflows
+```
+
 
 # Library requirements
 ## General
@@ -81,13 +86,13 @@ for the Python environment to run smoothly (see below).
 # Python requirements
 ## General
 The following list of Python packages are required to run much of the
-workflows in this repository. The [requirements.txt](./requirements.txt)
+workflows in this repository. The [requirements.txt](./0-prerequisites/requirements.txt)
 file describes the packages necessary to run the workflows.
 
 Please refer to [DRA's
 manual](https://docs.alliancecan.ca/wiki/Python#Creating_and_using_a_virtual_environment)
 for necessary information on how to create a Python virtual environment
-using the [requirements.txt](./requirements.txt) file mentioned above.
+using the [requirements.txt](./0-prerequisites/requirements.txt) file mentioned above.
 
 The installation process needs to be done in the login node of the Graham
 cluster, so let's switch to a login node:
@@ -100,7 +105,12 @@ Once you login, your sheel will look like the following:
 foo@gra-login1:~$ 
 ```
 
-You can create Python virtual environments (after assuring all
+Whenever you change a node, make sure you load all the necessary modules:
+```console
+foo@gra-login1:~$ module restore scimods
+```
+
+Then, you may create Python virtual environments (after assuring all
 the modules are loaded) on Graham HPC, to isolate the environment
 to execute the workflows. on Graham, it is recommended to use
 your `$HOME` directory, so a path like the following is recommended:
@@ -149,20 +159,21 @@ Jupyter sessions.
 
    Download with:
    ```console
-   foo@gra-login1:~$ git clone https://github.com/kasra-keshavarz/datatool.git
+   foo@gra-login1:~$ git clone https://github.com/kasra-keshavarz/datatool.git ./github-repos/datatool
    ```
 
 3. GIStool (version v0.1.7-dev, commit ff2a6da): https://github.com/kasra-keshavarz/gistool </b>
 
    Download with:
    ```console
-   foo@gra-login1:~$ git clone https://github.com/kasra-keshavarz/gistool.git
+   foo@gra-login1:~$ git clone https://github.com/kasra-keshavarz/gistool.git ./github-repos/gistool
    ```
 
 4. EASYMORE (v2.0.0-dev): https://github.com/ShervanGharari/EASYMORE </b>
   
    Download with:
    ```console
-   foo@gra-login1:~$ pip install git+https://github.com/ShervanGharari/EASYMORE.git
+   foo@gra-login1:~$ pip install git+https://github.com/ShervanGharari/EASYMORE.git ./github-repos/easymore
    ```
 
+Last edited: March 30th, 2024
