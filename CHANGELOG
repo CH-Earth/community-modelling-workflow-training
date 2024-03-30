@@ -1,0 +1,8 @@
+# Changelog
+
+* March 30th, 2024:
+ 1. The `scipy-stack/2023b` and `ipykernel/2023b` module have been
+    moved to the end of the `module load [....]` command, as it
+    seemed to cause issues with the `sys.path` addresses in the
+    Python environments. With the current order, everything seems
+    to work as excpected.
