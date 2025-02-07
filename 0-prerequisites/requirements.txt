@@ -43,7 +43,7 @@ findlibs==0.0.2
 Fiona==1.8.21
 fonttools==4.29.1
 funcsigs==1.0.2
-GDAL==3.5.1
+GDAL==3.4.0
 geopandas==0.14.0
 hydrant @ git+https://github.com/kasra-keshavarz/hydrant.git
 idna==3.3
