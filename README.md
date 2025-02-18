@@ -1,11 +1,5 @@
-# Training session to set up MESH for the Bow River at Banff catchment
-![Bow River at Banff Catchment](./0-prerequisites/img/bow.png)
-
-To download this repository on the `$HOME` directory of your Graham account:
-```console
-foo@gra-login1:~$ git clone https://github.com/kasra-keshavarz/community-modelling-workflow-training.git ./github-repos/community-workflows
-```
-
+# Training session to set up MESH for the Bow River at Calgary catchment
+![Bow River at Calgary Catchment](./0-prerequisites/img/calgary.png)
 
 # Library requirements
 ## General
@@ -39,40 +33,43 @@ Each of the above libraries and binaries may need further dependencies. It
 is up to the user to assure all requirements are satisfied. Most GNU/Linux
 distributions should be able to offer all the libraries above through
 their remote package repositories. If not, it is recommended to compile
-and store them for future reference.
+and store them for future reference. In the relevant
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/kasra-keshavarz/maf-env-basic.git/HEAD)
+session, these packages are pre-installed and available for testing.
 
-## Digital Research Alliance of Canada (DRA) Graham HPC
-Fortunately, all the above requirements are available on the DRA's Graham
-HPC. You may load the modules with the following command:
+## University of Calgary's ARC HPC
+Fortunately, all the above requirements are available on ARC.
+You may load the modules with the following command:
 ```console
-foo@bar:~$ module load StdEnv/2020
-foo@bar:~$ module load gcc/9.3.0
-foo@bar:~$ module load \
-  sqlite/3.38.5 postgresql/12.4 gdal/3.5.1 \
-  udunits/2.2.28 cdo/2.2.1 gentoo/2020 \
-  imkl/2020.1.217 openmpi/4.0.3 libfabric/1.10.1 \
-  jasper/2.0.16 freexl/1.0.5 geos/3.10.2 \
-  libaec/1.0.6 mpi4py/3.1.3 \
-  libffi/3.3 hdf5/1.10.6 \
-  libgeotiff-proj901/1.7.1 librttopo-proj9/1.1.0 \
-  proj/9.0.1 eccodes/2.25.0 netcdf-fortran/4.5.2 \
-  mii/1.1.2 ucx/1.8.0 python/3.10.2 \
-  netcdf/4.7.4 cfitsio/4.1.0 \
-  libspatialite-proj901/5.0.1 expat/2.4.1 \
-  yaxt/0.9.0 libspatialindex/1.8.5 arrow/13.0.0 \
-  scipy-stack/2023b ipykernel/2023b;
+# first activating Ucalgary's Computational Hydrology's customized moduled system
+. /work/comphyd_lab/local/modules/spack/2024v5/lmod-init-bash
+module unuse $MODULEPATH
+module use /work/comphyd_lab/local/modules/spack/2024v5/modules/linux-rocky8-x86_64/Core/
+# activating modules needed for this workshop
+module load \
+  gcc/14.2.0 htop/3.3.0 glibc/2.28 libaec/1.0.6 \
+  gcc-runtime/14.2.0 hdf5/1.14.3 openssl/3.3.1 lz4/1.9.4 \
+  libevent/2.1.12 snappy/1.1.10 numactl/2.0.14 c-blosc/1.21.5 \
+  opa-psm2/11.2.230 netcdf-c/4.9.2 krb5/1.21.2 \
+  netcdf-fortran/4.6.1 libedit/3.1-20230828 openjpeg/2.3.1 \
+  libxcrypt/4.4.35 eccodes/2.34.0 openssh/9.8p1 \
+  fftw/3.3.10 ucx/1.17.0 libunistring/1.2 \
+  openmpi/4.1.6 libidn2/2.3.7 sqlite/3.46.0 \
+  nghttp2/1.62.0 libmd/1.0.4 curl/8.7.1 \
+  libbsd/0.12.2 libjpeg-turbo/3.0.3 expat/2.6.2 \
+  libtiff/4.6.0 libffi/3.4.6 proj/9.4.1 \
+  util-linux-uuid/2.40.2 cdo/2.4.3 python/3.11.7 \
+  antlr/2.7.7 python-venv/1.0 gsl/2.7.1 \
+  py-numpy/1.26.4 nco/5.2.4 gdal/3.9.2 \
+  tree/2.1.0 geos/3.12.2 which/2.21 \
+  udunits/2.2.28 r/4.4.1 slurm/24.11.0-1 \
+  py-mpi4py/4.0.0 qt/5.15.14;
 ```
-
-> [!NOTE]
-> Both `scipy-stack/2023b` and `ipykernel/2023b` need to be loaded at the
-> end to assure the `sys.path` addresses in Python sessions are ordered as
-> expected.
-
 
 It is recommended to save all load modules as a list to be able to restore
 them whenever needed. Using the LMOD features, you may save them with:
 ```console
-foo@bar:~$ module save scimods # you can change "scimods" to anything!
+module save scimods # you can change "scimods" to anything!
 ```
 
 And, you may restore the list with:
@@ -80,7 +77,7 @@ And, you may restore the list with:
 foo@bar:~$ module restore scimods
 ```
 > [!NOTE]
-> Please note that some of the libraries and binary programs are necessary
+> Please note that these libraries are necessary
 for the Python environment to run smoothly (see below).
 
 # Python requirements
@@ -89,91 +86,44 @@ The following list of Python packages are required to run much of the
 workflows in this repository. The [requirements.txt](./0-prerequisites/requirements.txt)
 file describes the packages necessary to run the workflows.
 
-Please refer to [DRA's
-manual](https://docs.alliancecan.ca/wiki/Python#Creating_and_using_a_virtual_environment)
-for necessary information on how to create a Python virtual environment
-using the [requirements.txt](./0-prerequisites/requirements.txt) file mentioned above.
-
-The installation process needs to be done in the login node of the Graham
-cluster, so let's switch to a login node:
+To download this repository on the `$HOME` directory:
 ```console
-foo@bar:~$ ssh gra-login1 # user your username and password
+git clone https://github.com/kasra-keshavarz/community-modelling-workflow-training.git $HOME/github-repos/community-workflows
 ```
 
-Once you login, your sheel will look like the following:
-```console
-foo@gra-login1:~$ 
-```
-
-Whenever you change a node, make sure you load all the necessary modules:
-```console
-foo@gra-login1:~$ module restore scimods
-```
-
-Then, you may create Python virtual environments (after assuring all
-the modules are loaded) on Graham HPC, to isolate the environment
-to execute the workflows. on Graham, it is recommended to use
+You may create Python virtual environments (after assuring all
+the modules are loaded) on HPCs, to isolate the environment
+to execute the workflows. On HPCs, typically, it is recommended to use
 your `$HOME` directory, so a path like the following is recommended:
 ```console
-foo@gra-login1:~$ python -m virtualenv $HOME/virtual-envs/scienv
+python -m venv $HOME/virtual-envs/scienv
 ```
 
 After creating the virtual environment, you can activate the environment
 with:
 ```console
-foo@gra-login1:~$ source $HOME/virtual-envs/scienv/bin/activate
-(scienv) foo@gra-login1:~$ # this is how your Graham sheel will look
+source $HOME/virtual-envs/scienv/bin/activate
+```
+And your shell prompt, should look like this:
+```console
+(scienv) foo@bar: ~$ # this is how your HPC will look
 ```
 
 After the activation of the virtual environment, you may install any
 Python package within the environment. To install those we need for
 the modelling workflows:
 ```console
-(scienv) foo@gra-login1:~$ pip install -r ~/github-repos/community-workflows/0-prerequisites/requirements.txt
+pip install -r $HOME/github-repos/community-workflows/0-prerequisites/requirements.txt
 ```
 
 Once the `scienv` is ready, you may add the virtual environment
 to the Jupyter Lab as a kernel using the following command:
 ```console
-(scienv) foo@gra-login1:~$ python -m ipykernel install --name "scienv" --user
+python -m ipykernel install --name "scienv" --user
 ```
-> [!IMPORTANT]
-> If you face any errors by executing the command above, make sure
-> `jupyter` and `ipykernel` packages are installed properly. Similarly,
-> you may again use `pip` to install these packages.
 
 Once added as a kernel, you should your virtual environment within your
 Jupyter sessions.
 ![Virtual environment within a Jupyter Session](./0-prerequisites/img/jupyter-venv.png)
 
-# Additional datasets necessary
-1. MERIT-Basins vector hydrography Dataset (v0.7/v1.0, minor bug fix for coastaline pixels): https://www.reachhydro.org/home/params/merit-basins </b>
-
-   `MERIT-Basins` is available on Graham HPC under the following directory:
-   ```console
-   /project/rrg-mclark/data/geospatial-data/MERIT-Basins # rpp-kshook (GWFO) allocation
-   /project/rpp-kshook/Climate_Forcing_Data/geospatial-data/MERIT-Basins # rrg-mclark allocation
-   ```
-
-2. Datatool (version v0.5.1-dev): https://github.com/kasra-keshavarz/datatool </b>
-
-   Download with:
-   ```console
-   foo@gra-login1:~$ git clone https://github.com/kasra-keshavarz/datatool.git ./github-repos/datatool
-   ```
-
-3. GIStool (version v0.1.7-dev, commit ff2a6da): https://github.com/kasra-keshavarz/gistool </b>
-
-   Download with:
-   ```console
-   foo@gra-login1:~$ git clone https://github.com/kasra-keshavarz/gistool.git ./github-repos/gistool
-   ```
-
-4. EASYMORE (v2.0.0-dev): https://github.com/ShervanGharari/EASYMORE </b>
-  
-   Download with:
-   ```console
-   foo@gra-login1:~$ pip install git+https://github.com/ShervanGharari/EASYMORE.git ./github-repos/easymore
-   ```
-
-Last edited: March 30th, 2024
+Last edited: February 17th, 2025
