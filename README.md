@@ -74,7 +74,7 @@ module save scimods # you can change "scimods" to anything!
 
 And, you may restore the list with:
 ```console
-foo@bar:~$ module restore scimods
+module restore scimods
 ```
 > [!NOTE]
 > Please note that these libraries are necessary
