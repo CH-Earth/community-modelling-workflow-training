@@ -1,6 +1,8 @@
 # Training session to set up MESH for the Bow River at Calgary catchment
 ![Bow River at Calgary Catchment](./0-prerequisites/img/calgary.png)
 
+Launching MyBinder Session: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/kasra-keshavarz/maf-env-basic.git/HEAD)
+
 # Library requirements
 ## General
 Certain libraries and binary executables are necessary to run the
