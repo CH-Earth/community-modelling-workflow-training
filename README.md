@@ -49,23 +49,40 @@ module unuse $MODULEPATH
 module use /work/comphyd_lab/local/modules/spack/2024v5/modules/linux-rocky8-x86_64/Core/
 # activating modules needed for this workshop
 module load \
-  gcc/14.2.0 htop/3.3.0 glibc/2.28 libaec/1.0.6 \
-  gcc-runtime/14.2.0 hdf5/1.14.3 openssl/3.3.1 lz4/1.9.4 \
-  libevent/2.1.12 snappy/1.1.10 numactl/2.0.14 c-blosc/1.21.5 \
-  opa-psm2/11.2.230 netcdf-c/4.9.2 krb5/1.21.2 \
-  netcdf-fortran/4.6.1 libedit/3.1-20230828 openjpeg/2.3.1 \
-  libxcrypt/4.4.35 eccodes/2.34.0 openssh/9.8p1 \
-  fftw/3.3.10 ucx/1.17.0 libunistring/1.2 \
-  openmpi/4.1.6 libidn2/2.3.7 sqlite/3.46.0 \
-  nghttp2/1.62.0 libmd/1.0.4 curl/8.7.1 \
-  libbsd/0.12.2 libjpeg-turbo/3.0.3 expat/2.6.2 \
-  libtiff/4.6.0 libffi/3.4.6 proj/9.4.1 \
-  util-linux-uuid/2.40.2 cdo/2.4.3 python/3.11.7 \
-  antlr/2.7.7 python-venv/1.0 gsl/2.7.1 \
-  py-numpy/1.26.4 nco/5.2.4 gdal/3.9.2 \
-  tree/2.1.0 geos/3.12.2 which/2.21 \
-  udunits/2.2.28 r/4.4.1 slurm/24.11.0-1 \
-  py-mpi4py/4.0.0 qt/5.15.14;
+  gcc/14.2.0 openssh/9.8p1 python-venv/1.0 py-xarray/2024.7.0 \
+  py-traitlets/5.14.3 py-asttokens/2.4.0 htop/3.3.0 slurm/24.11.0-1 \
+  antlr/2.7.7 py-cdo/1.5.6 py-comm/0.1.4 py-executing/1.2.0 \
+  glibc/2.28 ucx/1.17.0 gsl/2.7.1 r-rcpp/1.0.12 py-debugpy/1.6.7 \
+  py-pure-eval/0.2.2 gcc-runtime/14.2.0 openmpi/4.1.6 nco/5.2.4 \
+  r-lattice/0.21-8 py-decorator/5.1.1 py-stack-data/0.6.2 tree/2.1.0 \
+  libunistring/1.2 py-numpy/1.26.4 r-sp/1.6-0 py-parso/0.8.3 \
+  py-typing-extensions/4.8.0 lz4/1.9.4 libidn2/2.3.7 gdal/3.9.2 \
+  r-terra/1.8-10 py-jedi/0.18.2 py-ipython/8.28.0 snappy/1.1.10 \
+  nghttp2/1.62.0 geos/3.12.2 r-raster/3.6-20 py-contourpy/1.0.7 \
+  py-platformdirs/3.10.0 c-blosc/1.21.5 curl/8.7.1 which/2.21 \
+  r-mass/7.3-59 py-cycler/0.11.0 py-jupyter-core/5.3.0 libaec/1.0.6 \
+  libjpeg-turbo/3.0.3 r/4.4.1 r-class/7.3-21 py-fonttools/4.39.4 \
+  py-pycparser/2.21 hdf5/1.14.3 libtiff/4.6.0 qt/5.15.14 \
+  r-proxy/0.4-27 py-kiwisolver/1.4.5 py-cffi/1.16.0 netcdf-c/4.9.2 \
+  sqlite/3.46.0 py-mpi4py/4.0.0 r-e1071/1.7-13 py-pillow/10.4.0 \
+  py-greenlet/2.0.2 netcdf-fortran/4.6.1 proj/9.4.1 py-six/1.16.0 \
+  r-kernsmooth/2.23-20 py-pyparsing/3.1.2 py-zope-event/4.6 \
+  openjpeg/2.3.1 fftw/3.3.10 py-python-dateutil/2.8.2 \
+  r-classint/0.4-9 py-pyqt5-sip/12.13.0 py-zope-interface/5.4.0 \
+  eccodes/2.34.0 libmd/1.0.4 py-pytz/2023.3 r-dbi/1.1.3 \
+  py-pyqt5/5.15.9 py-gevent/23.7.0 openssl/3.3.1 libbsd/0.12.2 \
+  py-tzdata/2023.3 r-magrittr/2.0.3 py-matplotlib/3.9.2 \
+  py-pyzmq/25.0.2 libevent/2.1.12 expat/2.6.2 py-pandas/2.2.3 \
+  r-wk/0.7.2 py-matplotlib-inline/0.1.6 py-tornado/6.3.3 \
+  numactl/2.0.14 udunits/2.2.28 py-certifi/2023.7.22 r-s2/1.1.2 \
+  py-ptyprocess/0.7.0 py-jupyter-client/8.2.0 opa-psm2/11.2.230 \
+  util-linux-uuid/2.40.2 py-cftime/1.0.3.4 r-units/0.8-1 \
+  py-pexpect/4.8.0 py-nest-asyncio/1.6.0 krb5/1.21.2 cdo/2.4.3 \
+  py-netcdf4/1.6.5 r-sf/1.0-12 py-wcwidth/0.2.7 py-psutil/5.9.5 \
+  libedit/3.1-20230828 libffi/3.4.6 py-packaging/23.1 \
+  r-exactextractr/0.10.0 py-prompt-toolkit/3.0.43 py-ipykernel/6.29.5 \
+  libxcrypt/4.4.35 python/3.11.7 py-setuptools/69.2.0 py-cython/3.0.10 \
+  py-pygments/2.18.0;
 ```
 
 It is recommended to save all load modules as a list to be able to restore
