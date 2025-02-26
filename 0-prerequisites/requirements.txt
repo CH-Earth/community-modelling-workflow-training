@@ -25,7 +25,7 @@ DateTime==5.5
 debugpy==1.6.7
 decorator==5.1.1
 defusedxml==0.7.1
-easymore==2.0.1
+easymore @ git+https://github.com/ShervanGharari/EASYMORE.git
 executing==1.2.0
 fastjsonschema==2.20.0
 fiona==1.10.1
@@ -40,7 +40,7 @@ gevent==23.7.0
 gitdb==4.0.11
 GitPython==3.1.43
 greenlet==2.0.2
-hydrant==0.1.0.dev0
+hydrant @ git+https://github.com/kasra-keshavarz/hydrant.git
 idna==3.10
 iniconfig==2.0.0
 ipykernel==6.29.5
@@ -67,7 +67,7 @@ kiwisolver==1.4.5
 MarkupSafe==3.0.2
 matplotlib==3.9.2
 matplotlib-inline==0.1.6
-meshflow==0.1.0.dev2
+meshflow @ git+https://github.com/kasra-keshavarz/meshflow
 mistune==3.0.2
 mpi4py==4.0.0
 nbclient==0.10.0
