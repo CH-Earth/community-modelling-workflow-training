@@ -54,7 +54,7 @@
       "prefix": "bc_model_",
       "email": "kasra.keshavarz1@ucalgary.ca",
       "fid": "COMID",
-      "lib-path": "/work/comphyd_lab/envs/r-env/",
+      "cluster": "./etc/clusters/ucalgary-arc.json",
       "_flags": [
 	"include-na",
         "submit-job",
@@ -80,7 +80,7 @@
       "prefix": "bc_model_",
       "email": "kasra.keshavarz1@ucalgary.ca",
       "fid": "COMID",
-      "lib-path": "/work/comphyd_lab/envs/r-env/",
+      "cluster": "./etc/clusters/ucalgary-arc.json",
       "_flags": [
 	"include-na",
         "submit-job",
