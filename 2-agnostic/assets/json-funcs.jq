@@ -21,7 +21,7 @@ def count($array):
 def select_independants($array):
   array |
   to_entries | .[] | 
-  select((.value == -1) or (.value == "-1")) |
+  select((.value <= -1) or (.value == "-1")) |
   .key
   ;
 
