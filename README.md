@@ -88,14 +88,15 @@ module load \
 ## DRAC Fir HPC (at the Simon Fraser University)
 The necessary modules may be loaded with the following command:
 ```console
-module load CCconfig ucc/1.2.0 r/4.4.0 hdf5/1.14.2 jasper/4.0.0 \
+module load CCconfig StdEnv/2023 gcc/12.3 \
+  ucc/1.2.0 r/4.4.0 hdf5/1.14.2 jasper/4.0.0 \
   libgeotiff/1.7.1 postgresql/16.0 gentoo/2023 openmpi/4.1.5 \
   rstudio-server/4.4 netcdf/4.9.2 libaec/1.0.6 hdf/4.2.16 \
-  gdal/3.9.1 StdEnv/2023 aocl-blas/5.1 python/3.11.5 fftw/3.3.10 \
+  gdal/3.9.1 aocl-blas/5.1 python/3.11.5 fftw/3.3.10 \
   eccodes/2.31.0 boost/1.82.0 rust/1.85.0 mii/1.1.2 aocl-lapack/5.1 \
   ipykernel/2023b proj/9.2.0 netcdf-fortran/4.6.1 eigen/3.4.0 \
   mpi4py/4.0.3 flexiblas/3.3.1 ipython-kernel/2023b cdo/2.2.2 \
-  qt/5.15.11 arpack-ng/3.9.1 gcc/12.3 code-server/4.101.2 \
+  qt/5.15.11 arpack-ng/3.9.1 code-server/4.101.2 \
   jupyterlab-apps/1.0 antlr/2.7.7 freexl/2.0.0 armadillo/12.6.4 \
   hwloc/2.9.1 calibre/8.6.0 scipy-stack/2023b libdap/3.20.11 \
   geos/3.12.0 cfitsio/4.3.0 ucx/1.14.1 libreqda/1.0.1 arrow/14.0.1 \
