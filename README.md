@@ -85,6 +85,27 @@ module load \
   py-pygments/2.18.0;
 ```
 
+## DRAC Fir HPC (at the Simon Fraser University)
+The necessary modules may be loaded with the following command:
+```console
+module load CCconfig ucc/1.2.0 r/4.4.0 hdf5/1.14.2 jasper/4.0.0 \
+  libgeotiff/1.7.1 postgresql/16.0 gentoo/2023 openmpi/4.1.5 \
+  rstudio-server/4.4 netcdf/4.9.2 libaec/1.0.6 hdf/4.2.16 \
+  gdal/3.9.1 StdEnv/2023 aocl-blas/5.1 python/3.11.5 fftw/3.3.10 \
+  eccodes/2.31.0 boost/1.82.0 rust/1.85.0 mii/1.1.2 aocl-lapack/5.1 \
+  ipykernel/2023b proj/9.2.0 netcdf-fortran/4.6.1 eigen/3.4.0 \
+  mpi4py/4.0.3 flexiblas/3.3.1 ipython-kernel/2023b cdo/2.2.2 \
+  qt/5.15.11 arpack-ng/3.9.1 gcc/12.3 code-server/4.101.2 \
+  jupyterlab-apps/1.0 antlr/2.7.7 freexl/2.0.0 armadillo/12.6.4 \
+  hwloc/2.9.1 calibre/8.6.0 scipy-stack/2023b libdap/3.20.11 \
+  geos/3.12.0 cfitsio/4.3.0 ucx/1.14.1 libreqda/1.0.1 arrow/14.0.1 \
+  gsl/2.7 librttopo/1.1.0 brunsli/0.1 libfabric/1.18.0 flexiblascore/.3.3.1 \
+  openrefine/3.9.3 nco/5.1.7 libspatialite/5.1.0 qhull/2020.2 pmix/4.2.4 \
+  java/17.0.6 yaxt/0.10.0 udunits/2.2.28 libspatialindex/1.9.3 \
+  lerc/4.0.0;
+```
+
+# Saving Module Collections
 It is recommended to save all load modules as a list to be able to restore
 them whenever needed. Using the LMOD features, you may save them with:
 ```console
@@ -132,8 +153,12 @@ After the activation of the virtual environment, you may install any
 Python package within the environment. To install those we need for
 the modelling workflows:
 ```console
-pip install -r $HOME/github-repos/community-workflows/0-prerequisites/requirements.txt
+pip install -r $HOME/github-repos/community-workflows/0-prerequisites/requirements_%HPC%.txt
 ```
+
+> [!IMPORTANT]
+> Please replace `%HPC%` with either `arc` or `fir`, depending on
+> which HPC you are using.
 
 Once the `scienv` is ready, you may add the virtual environment
 to the Jupyter Lab as a kernel using the following command:
@@ -145,4 +170,4 @@ Once added as a kernel, you should your virtual environment within your
 Jupyter sessions.
 ![Virtual environment within a Jupyter Session](./0-prerequisites/img/jupyter-venv.png)
 
-Last edited: February 17th, 2025
+Last edited: September 17th, 2025
