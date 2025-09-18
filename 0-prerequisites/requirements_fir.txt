@@ -127,3 +127,5 @@ websocket-client==1.8.0
 xarray==2024.7.0
 zope.event==4.6
 zope.interface==5.4.0
+findlibs==0.1.2
+msgpack==1.1.1
