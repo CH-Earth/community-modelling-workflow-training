@@ -62,7 +62,6 @@ nbconvert==7.16.4
 nbdime==4.0.2
 nbformat==5.10.4
 nest_asyncio==1.6.0
-netCDF4==1.6.5
 networkx==3.4.2
 numpy==1.26.4
 overrides==7.7.0
@@ -86,7 +85,6 @@ pycparser==2.21
 Pygments==2.18.0
 pyogrio==0.10.0
 pyparsing==3.1.2
-pyproj==3.7.1
 PyQt5==5.15.1
 PyQt5_sip==12.13.0
 pytest==8.3.4
@@ -129,3 +127,4 @@ zope.event==4.6
 zope.interface==5.4.0
 findlibs==0.1.2
 msgpack==1.1.1
+PyQt5==5.15.1
