@@ -53,41 +53,50 @@ the link of each tool!
   (scienv) foo@gra-login1: 2-agnostic$ ./model-agnostic.sh model-agnostic.json
   ```
 
+# Steps
+## `datatool` for CaSRv3.2
+```console
+$HOME/github-repos/datatool/extract-data.sh --dataset=CaSRv3.2 \
+  --dataset-dir=/project/rrg-alpie/data/meteorological-data/casrv3.2/ \
+  --variable=CaSR_v3.2_P_P0_SFC,CaSR_v3.2_P_TT_09975,CaSR_v3.2_P_UVC_09975,CaSR_v3.2_A_PR0_SFC,CaSR_v3.2_P_FB_SFC,CaSR_v3.2_P_FI_SFC,CaSR_v3.2_P_HU_09975 \
+  --output-dir=$HOME/scratch/bc-models/datatool-outputs \
+  --start-date=1980-01-01T13:00:00 \
+  --end-date=1980-01-5T12:00:00 \
+  --shape-file=$HOME/github-repos/maf/1-geofabric/bow-at-calgary-geofabric/bc_subbasins.shp \
+  --cache=$SLURM_TMPDIR \
+  --prefix=bc_model_ \
+  --cluster=./etc/clusters/drac.json;
+```
 
-# Datasets
+## `gistool` for Landcover
+```console
+$HOME/github-repos/gistool/extract-gis.sh --dataset=landsat \
+  --dataset-dir=/project/rrg-alpie/data/geospatial-data/Landsat \
+  --variable=land-cover \
+  --start-date=2015 \
+  --end-date=2015 \
+  --output-dir=$HOME/scratch/bc-models/gistool-outputs \
+  --shape-file=$HOME/github-repos/maf/1-geofabric/bow-at-calgary-geofabric/bc_subbasins.shp \
+  --print-geotiff=true \
+  --stat=frac,coords \
+  --cache=$SLURM_TMPDIR \
+  --prefix=bc_model_ \
+  --fid=COMID \
+  --cluster=./etc/clusters/ucalgary-arc.json \
+  --include-na;
+```
 
-1. Regional Deterministic Reanalysis System (RDRS, v2.1 via datatool):
-
- * spatial extents: Alberta provincial boundaries extracted from
-   MERIT-Basins dataset
- * temporal extents: 1980-01-01 13:00:00 UTC until
-    2018-12-31 12:00:00 UTC
- * climate variables: 
- 	1. precipitation [surface level, `RDRS_v2.1_A_PR0_SFC` variable],
-    2. air temperature [~40m levelm, `RDRS_v2.1_P_TT_09944` variable],
-    3. wind speed [~40m level, `RDRS_v2.1_P_UVC_09944` variable],
-    4. surface pressure [surface level, `RDRS_v2.1_P_P0_SFC` variable],
-    5. specific humidity [~40m level, `RDRS_v2.1_P_HU_09944` variable],
-    6. shortwave radiation [surface level, `RDRS_v2.1_P_FB_SFC` variable], and
-    7. incoming longwave radiation [surface level, `RDRS_v2.1_P_FI_SFC` variable].
-
-
-2. Landsat North American Land Change Monitoring System 2015 v2 (NALCMS,
- v1, last accessed on July 27th, 2023, via gistool):
-
- * spatial extents: Alberta provincial boundaries extracted from
-   MERIT-Basins dataset
- * temporal extents: annual landcover reported for 2015 v2
- * landcover categories: 19 categories (for complete information,
-    refer to gistool's documentation)
-
-
- 3. USDA soil category map based on Soil Grids (v1 2017, last accessed
- on May 31st, 2022, via gistool):
-
-  * spatial extents: Alberta provincial boundaries extracted from
-    MERIT-Basins dataset
-  * temporal extents: annual soil map reported for 2017
-  * soil categories: refer to USDA manual or gistool's documentation
-
-Last edited: March 27th, 2024
+## `easymore` for meteorological data remapping
+```console
+easymore cli --case-name=remapped \
+  --cache=$HOME/scratch/bc-models/easymore-outputs/cache/ \
+  --shapefile=$HOME/github-repos/maf/1-geofabric/bow-at-calgary-geofabric/bc_subbasins.shp \
+  --shapefile-id=COMID \
+  --source-nc=$HOME/scratch/bc-models/datatool-outputs/**/*.nc* \
+  --variable-lon=lon \
+  --variable-lat=lat \
+  --variable=CaSR_v3.2_P_P0_SFC,CaSR_v3.2_P_TT_09975,CaSR_v3.2_P_UVC_09975,CaSR_v3.2_A_PR0_SFC,CaSR_v3.2_P_FB_SFC,CaSR_v3.2_P_FI_SFC,CaSR_v3.2_P_HU_09975 \
+  --remapped-var-id=COMID \
+  --remapped-dim-id=COMID \
+  --output-dir=$HOME/scratch/bc-models/easymore-outputs/
+```
