@@ -56,16 +56,16 @@ the link of each tool!
 # Steps
 ## `datatool` for CaSRv3.2
 ```console
-$HOME/github-repos/datatool/extract-data.sh --dataset=CaSRv3.2 \
+$HOME/github-repos/datatool/extract-dataset.sh --dataset=CaSRv3.2 \
   --dataset-dir=/project/rrg-alpie/data/meteorological-data/casrv3.2/ \
   --variable=CaSR_v3.2_P_P0_SFC,CaSR_v3.2_P_TT_09975,CaSR_v3.2_P_UVC_09975,CaSR_v3.2_A_PR0_SFC,CaSR_v3.2_P_FB_SFC,CaSR_v3.2_P_FI_SFC,CaSR_v3.2_P_HU_09975 \
   --output-dir=$HOME/scratch/bc-models/datatool-outputs \
   --start-date=1980-01-01T13:00:00 \
   --end-date=1980-01-5T12:00:00 \
-  --shape-file=$HOME/github-repos/maf/1-geofabric/bow-at-calgary-geofabric/bc_subbasins.shp \
-  --cache=$SLURM_TMPDIR \
+  --shape-file=$HOME/github-repos/maf/1-geofabric/bow-at-calgary-geofabric/bcalgary_subbasins.shp \
+  --cache=$SCRATCH/cache/ \
   --prefix=bc_model_ \
-  --cluster=./etc/clusters/drac.json;
+  --cluster=$HOME/github-repos/datatool/etc/clusters/drac.json;
 ```
 
 ## `gistool` for Landcover
@@ -76,21 +76,21 @@ $HOME/github-repos/gistool/extract-gis.sh --dataset=landsat \
   --start-date=2015 \
   --end-date=2015 \
   --output-dir=$HOME/scratch/bc-models/gistool-outputs \
-  --shape-file=$HOME/github-repos/maf/1-geofabric/bow-at-calgary-geofabric/bc_subbasins.shp \
+  --shape-file=$HOME/github-repos/maf/1-geofabric/bow-at-calgary-geofabric/bcalgary_subbasins.shp \
   --print-geotiff=true \
   --stat=frac,coords \
-  --cache=$SLURM_TMPDIR \
+  --cache=$SCRATCH/cache/ \
   --prefix=bc_model_ \
   --fid=COMID \
-  --cluster=./etc/clusters/ucalgary-arc.json \
+  --cluster=$HOME/github-repos/gistool/etc/clusters/darc.json \
   --include-na;
 ```
 
 ## `easymore` for meteorological data remapping
 ```console
 easymore cli --case-name=remapped \
-  --cache=$HOME/scratch/bc-models/easymore-outputs/cache/ \
-  --shapefile=$HOME/github-repos/maf/1-geofabric/bow-at-calgary-geofabric/bc_subbasins.shp \
+  --cache=$SCRATCH/cache/ \
+  --shapefile=$HOME/github-repos/maf/1-geofabric/bow-at-calgary-geofabric/bcalgary_subbasins.shp \
   --shapefile-id=COMID \
   --source-nc=$HOME/scratch/bc-models/datatool-outputs/**/*.nc* \
   --variable-lon=lon \
